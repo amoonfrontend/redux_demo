@@ -41,16 +41,20 @@ var config = {
                 exclude: nodeModulesPath
             },
             {
-                test: /\.(css|scss)$/,
-                loaders: ['style', 'css', 'sass', 'postcss']
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.less$/,
+                loader: 'style-loader!css-loader!autoprefixer-loader!less-loader'
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
-                loader: 'url?limit=8192'
+                loader: 'url-loader?limit=8192'
             },
             {
                 test : /\.(woff|woff2|ttf|eot)$/,
-                loader: 'url'
+                loader: 'url-loader'
             }
         ]
     },
